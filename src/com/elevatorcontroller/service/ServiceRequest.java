@@ -1,9 +1,17 @@
 package com.elevatorcontroller.service;
 
 public interface ServiceRequest {
+
+	public boolean GoUP();
+
+	public boolean GoDown();
+
+	public int GetLevel();
+
+	public void SetLevel(int level);
+
+	public boolean CanAddLevel(int level);
 	
-	 String requestFloor(Integer n);
-	 
-	 boolean isUpward();
+	public void processRequest(int level);
 
 }

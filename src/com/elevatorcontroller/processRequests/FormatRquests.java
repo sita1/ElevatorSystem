@@ -1,15 +1,17 @@
 package com.elevatorcontroller.processRequests;
 
+import java.util.TreeSet;
+
+import com.elevatorcontroller.service.ServiceRequest;
 import com.elevatorcontroller.serviceimpl.ServiceRequestImpl;
 
 public class FormatRquests {
 	
-	private ServiceRequestImpl serviceRequestImpl;
+	private ServiceRequest serviceRequest;
 	
 	
-	public String makeRequestProcess()
-	{
-		serviceRequestImpl.requestFloor(n)
+	public void processRequest(boolean upward, TreeSet<Integer> userInputs) {
+		
 	}
 
 }
