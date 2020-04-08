@@ -1,6 +1,5 @@
 package com.elevatorcontroller.module;
 
-import com.elevatorcontroller.processRequests.FormatRquests;
 import com.elevatorcontroller.service.ServiceRequest;
 import com.elevatorcontroller.serviceimpl.ServiceRequestImpl;
 import com.google.inject.AbstractModule;
@@ -11,6 +10,5 @@ public class AppModule extends AbstractModule {
 	protected void configure() {
 	bind(ServiceRequest.class).to(ServiceRequestImpl.class);
 	
-	bind(FormatRquests.class).to(FormatRquests.class);
 	}
 }

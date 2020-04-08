@@ -1,17 +1,21 @@
 package com.elevatorcontroller.processRequests;
 
-import java.util.TreeSet;
+import javax.inject.Inject;
 
 import com.elevatorcontroller.service.ServiceRequest;
-import com.elevatorcontroller.serviceimpl.ServiceRequestImpl;
 
 public class FormatRquests {
 	
+	@Inject
 	private ServiceRequest serviceRequest;
 	
 	
-	public void processRequest(boolean upward, TreeSet<Integer> userInputs) {
+	public void processRequest() {
 		
+		System.out.println("processRequest");
+		
+		serviceRequest.addLevel(5);
+		serviceRequest.GoUP();
 	}
 
 }

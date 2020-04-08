@@ -23,9 +23,9 @@ public class ServiceRequestImpl implements ServiceRequest {
 	}
 
 	public boolean CanAddLevel(int level) {
-		if (Direction.UP.equals("UP") && elevQ.peek() < level)
+		if (Direction.UP.equals(Lift.getCurrenDirection()) && elevQ.peek() < level)
 			return true;
-		else if (Direction.DOWN.equals("DOWN") && elevQ.peek() > level)
+		else if (Direction.DOWN.equals(Lift.getCurrenDirection()) && elevQ.peek() > level)
 			return true;
 		return false;
 	}
@@ -93,8 +93,38 @@ public class ServiceRequestImpl implements ServiceRequest {
 	public void processRequest(int level) {
 		
 	}
+
+	@Override
+	public void startLift() {
+
+	Lift.setCurrenDirection(getDirection());
+
+		if (Lift.getCurrenDirection().equals(Direction.UP)) {
+	            GoUP();
+	        } else if (Lift.getCurrenDirection().equals(Direction.DOWN)) {
+	            GoDown();
+	        }
+		
+		
+	}
+
+	@Override
+	public Direction getDirection() {
+		        if (elevQ.size() > 0) return Direction.UP;
+		        else if (elevQ.size() > 0) return Direction.DOWN;
+		        else return Direction.NONE;
+		
+	}
+
+	@Override
+	public void addLevel(int n) {
+		
+		System.out.println("adding elevQ");
+		elevQ.add(n);
+		
+	}
 	
-	
+
 
 
 }

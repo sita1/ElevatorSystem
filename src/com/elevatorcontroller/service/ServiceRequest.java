@@ -1,5 +1,7 @@
 package com.elevatorcontroller.service;
 
+import com.elevatorcontroller.Enum.Direction;
+
 public interface ServiceRequest {
 
 	public boolean GoUP();
@@ -13,5 +15,11 @@ public interface ServiceRequest {
 	public boolean CanAddLevel(int level);
 	
 	public void processRequest(int level);
+	
+	public void startLift();
+	
+	public Direction getDirection();
+	
+	public void addLevel(int n);
 
 }
