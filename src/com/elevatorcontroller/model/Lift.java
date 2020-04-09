@@ -1,7 +1,5 @@
 package com.elevatorcontroller.model;
 
-import javax.inject.Inject;
-
 import com.elevatorcontroller.Enum.Direction;
 
 public class Lift {
@@ -10,7 +8,7 @@ public class Lift {
 	
 	private String ground= "0";
 	
-	@Inject
+	
 	private Direction currenDirection;
 
 	public String getTop() {

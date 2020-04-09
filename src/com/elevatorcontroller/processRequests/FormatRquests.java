@@ -9,13 +9,20 @@ public class FormatRquests {
 	@Inject
 	private ServiceRequest serviceRequest;
 	
+	Integer capacity = 100;
+	
 	
 	public void processRequest() {
 		
-		System.out.println("processRequest");
+		if(serviceRequest.GetLevel()==0)
+		{
+			serviceRequest.SetLevel(3);
+			serviceRequest.GoUP();
+			
+	
+		}
+			
 		
-		serviceRequest.addLevel(5);
-		serviceRequest.GoUP();
 	}
 
 }

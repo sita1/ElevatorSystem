@@ -16,10 +16,7 @@ public interface ServiceRequest {
 	
 	public void processRequest(int level);
 	
-	public void startLift();
-	
 	public Direction getDirection();
 	
-	public void addLevel(int n);
 
 }
