@@ -8,16 +8,14 @@ public class FormatRquests {
 	
 	@Inject
 	private ServiceRequest serviceRequest;
-	
-	Integer capacity = 100;
+
 	
 	
 	public void processRequest() {
 		
 		if(serviceRequest.GetLevel()==0)
 		{
-			serviceRequest.SetLevel(3);
-			serviceRequest.GoUP();
+			 serviceRequest.inputEveryFiveSecond();
 			
 	
 		}

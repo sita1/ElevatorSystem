@@ -2,6 +2,9 @@ package com.elevatorcontroller.serviceimpl;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.inject.Inject;
 
@@ -14,7 +17,12 @@ public class ServiceRequestImpl implements ServiceRequest {
 	Queue<Integer> elevQ = new LinkedList<Integer>();
 	
 	 Integer currentFloor = 0;
-	
+	 public ServiceRequestImpl()
+	 {
+		 elevQ = new LinkedList<Integer>();
+		 currentFloor = 0;
+	 }
+	 
 	@Inject
 	Lift Lift;
 
@@ -48,7 +56,7 @@ public class ServiceRequestImpl implements ServiceRequest {
 			 
 			 System.out.println("Lift Going up to floor :" + currentFloor);
 			 try {
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 				
 				
 			} catch (InterruptedException e) {
@@ -59,7 +67,6 @@ public class ServiceRequestImpl implements ServiceRequest {
 			 
 		  }while(elevQ.size()>0);
 		  
-		  processRequest(2);
 		    
 	        if (elevQ.size() > 0) {
 	        	if(currentFloor<elevQ.peek())
@@ -73,6 +80,7 @@ public class ServiceRequestImpl implements ServiceRequest {
 	        	GoDown();
 	        	}
 	        } else {
+	        	if(Lift!=null)
 	        	Lift.setCurrenDirection(Direction.NONE); 
 	        }
 	   
@@ -82,7 +90,7 @@ public class ServiceRequestImpl implements ServiceRequest {
 	}
 
 	private void removeVisitingFloor() {
-		elevQ.remove();
+		elevQ.poll();
 		
 	}
 
@@ -95,7 +103,7 @@ public class ServiceRequestImpl implements ServiceRequest {
         	  removeVisitingFloor();
         	  System.out.println("Lift Going down to floor :" + currentFloor);
         	  try {
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -126,6 +134,31 @@ public class ServiceRequestImpl implements ServiceRequest {
 		        if (elevQ.size() > 0) return Lift.getCurrenDirection();
 		        else return Direction.NONE;
 		
+	}
+
+	@Override
+	public void inputEveryFiveSecond() {
+
+		Timer t = new Timer();
+		t.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				while (true) {
+					System.out.println("Please insert floor");
+					Scanner sc = new Scanner(System.in);
+					int c = sc.nextInt();
+					if (c > 0) {
+						elevQ.add(c);
+						if (currentFloor > c)
+							GoDown();
+						else
+							GoUP();
+
+					}
+				}
+			}
+		}, 0, 5000);
+
 	}
 
 

@@ -18,5 +18,7 @@ public interface ServiceRequest {
 	
 	public Direction getDirection();
 	
+	public void inputEveryFiveSecond();
+	
 
 }

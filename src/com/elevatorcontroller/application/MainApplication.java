@@ -10,7 +10,6 @@ public class MainApplication {
 	{
 		Injector injector = Guice.createInjector(new AppModule());
 	    FormatRquests formatRquests =injector.getInstance(FormatRquests.class);
-	    //formatRquests.makeRequestProcess(upward,userInputs);
 	    formatRquests.processRequest();
 	}
 
