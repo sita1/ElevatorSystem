@@ -17,10 +17,12 @@ public class ServiceRequestImpl implements ServiceRequest {
 	Queue<Integer> elevQ = new LinkedList<Integer>();
 	
 	 Integer currentFloor = 0;
+	 Integer maxPerson = 0;
 	 public ServiceRequestImpl()
 	 {
 		 elevQ = new LinkedList<Integer>();
 		 currentFloor = 0;
+		 maxPerson=10;
 	 }
 	 
 	@Inject
