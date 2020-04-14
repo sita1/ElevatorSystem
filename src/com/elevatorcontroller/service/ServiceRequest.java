@@ -4,9 +4,9 @@ import com.elevatorcontroller.Enum.Direction;
 
 public interface ServiceRequest {
 
-	public boolean GoUP();
+	public String GoUP();
 
-	public boolean GoDown();
+	public String GoDown();
 
 	public int GetLevel();
 
@@ -19,6 +19,8 @@ public interface ServiceRequest {
 	public Direction getDirection();
 	
 	public void inputEveryFiveSecond();
+	
+	public boolean canAddPerson();
 	
 
 }
